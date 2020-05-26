@@ -56,10 +56,14 @@ function jouer() {
   });
 }
 
-const entierAlea = getRandomIntInclusive(0, 100);
-const essais = [];
-jouer();
-console.log('Fin');
+// const entierAlea = getRandomIntInclusive(0, 100);
+// const essais = [];
+// jouer();
+// console.log('Fin');
+
+const game = new Jeu(); // <- constructor (3 propriétés entierAlea, essais, _rl)
+game.jouer();
+
 
 // pile d'appel
 // ^
