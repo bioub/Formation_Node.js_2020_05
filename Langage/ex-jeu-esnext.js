@@ -23,6 +23,12 @@ const Random = {
 const readline = require("readline");
 
 class Jeu {
+  essais = [];
+
+  #rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
   /**
    * @constructor
    * @param {object} options
@@ -32,22 +38,15 @@ class Jeu {
   constructor(options = {}) {
     const { min = 0, max = 100 } = options;
     this.entierAlea = Random.getIntInclusive(min, max);
-
     // Object.assign(this, { min: 0, max: 100}, options);
-    // this.entierAlea = Random.getIntInclusive(this.min, this.max);
-
-    this.essais = [];
-    this._rl = readline.createInterface({
-      input: process.stdin,
-      output: process.stdout,
-    });
+    // this.entierAlea = Random.getIntInclusive(this.min, this.max)
   }
   jouer() {
     if (this.essais.length) {
       console.log(`Vous avez déjà saisi : ${this.essais.join(" - ")}...`);
     }
 
-    this._rl.question("Quel est le nombre ? ", (answer) => {
+    this.#rl.question("Quel est le nombre ? ", (answer) => {
       console.log(`Vous avez saisi : ${answer} !`);
 
       const entierSaisi = Number.parseInt(answer, 10);
@@ -67,7 +66,7 @@ class Jeu {
         this.jouer();
       } else {
         console.log("Gagné !!!");
-        this._rl.close();
+        this.#rl.close();
       }
     });
   }
