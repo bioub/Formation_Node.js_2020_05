@@ -12,3 +12,7 @@ const indexHtmlPath = path.resolve(srcPath, 'index.html');
 const indexHtmlDistPath = path.resolve(distPath, 'index.html');
 const appJsDistPath = path.resolve(distPath, 'app.js');
 
+// Attention dans fs-extra
+// on écrit fs.readFile pour la version basé sur les promesses
+// et pas fs.promises.readFile
+
