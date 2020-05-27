@@ -13,9 +13,9 @@ try {
 // ^
 // |
 // |
-// |try {st - st - st - st - lg }    lg               lg    lg           lg
-// |(anonymous)                 ⟳   cbB  ⟳           cbA - cbD  ⟳      cbC
-// +----------------------------3ms---------------500ms--------------1000ms-> temps
+// |try {st - st - st - st - lg }      lg               lg    lg           lg
+// |(anonymous)                   ⟳   cbB  ⟳           cbA - cbD  ⟳      cbC
+// +-----------------------------------3ms---------------500ms--------------1000ms-> temps
 //                      E       B                 A      D           C
 
 // file d'attente (0ms) : cbB

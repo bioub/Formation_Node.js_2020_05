@@ -2,6 +2,7 @@
   'use strict';
 
 const Random = {
+  // Ex: Method properties
   get: function () {
     return Math.random();
   },
@@ -28,10 +29,16 @@ const readline = require("readline");
  * @param {number} options.min La borne min
  * @param {number} options.max La borne max
  */
+// Ex: Class
 function Jeu(options) {
+  // Ex: Default params
   options = options || {};
+
+  // Ex: Object destructuring + default param + shortand property
+  // voir slide 146
   const min = options.min || 0;
   const max = options.max !== undefined ? options.max : 100;
+
   this.entierAlea = Random.getIntInclusive(min, max);
   this.essais = [];
   this._rl = readline.createInterface({
@@ -42,15 +49,17 @@ function Jeu(options) {
 
 Jeu.prototype.jouer = function() {
   if (this.essais.length) {
-    console.log("Vous avez déjà saisi : " + this.essais.join(" - "));
+    // Ex: Template literal
+    console.log("Vous avez déjà saisi : " + this.essais.join(" - ") + "...");
   }
 
   this._rl.question("Quel est le nombre ? ", (answer) => {
-    console.log("Vous avez saisi : " + answer);
+    // Ex: Template literal
+    console.log("Vous avez saisi : " + answer + "!");
 
     const entierSaisi = Number.parseInt(answer, 10);
 
-    if (isNaN(entierSaisi)) {
+    if (Number.isNaN(entierSaisi)) {
       console.log("Erreur : il faut saisir un entier");
       return this.jouer();
     }

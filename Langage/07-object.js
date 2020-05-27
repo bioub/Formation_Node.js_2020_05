@@ -28,7 +28,7 @@ const cle = "z";
 console.log(coords[cle]); // 3
 
 for (const key in coords) {
-  if (coords.hasOwnProperty(key)) {
+  if (coords.hasOwnProperty(key)) { // boucler sur les props uniquement
     const value = coords[key];
     console.log(key, value);
   }
@@ -69,5 +69,10 @@ const contact1 = new Contact("Romain");
 console.log(Contact.class);
 console.log(contact1.hello());
 console.log(contact1._prenom); // mauvaise pratique (_ === private)
+console.log(contact1.hasOwnProperty('_prenom')); // true
+console.log(contact1.hasOwnProperty('hello')); // false
+console.log(contact1._prenom !== undefined); // true
+console.log(contact1.hello !== undefined); // true
+
 
 console.log(process);

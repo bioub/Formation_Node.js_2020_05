@@ -4,13 +4,16 @@ function delay(msg, delay = 1000) {
   }, delay);
 }
 
-delay('Hello', 1500);
+delay("Hello", 1500);
 
 function save(val) {
   return () => {
     console.log(val);
-  }
+  };
 }
+
+const fct = save("Hello");
+fct();
 
 for (var i = 0; i < 3; i++) {
   setTimeout(save(i), 1000);
@@ -21,7 +24,6 @@ for (var i = 0; i < 3; i++) {
 // ..1s.. 0 ..1s.. 1 ..1s.. 2
 // ..1s.. 0 1 2
 // ..1s.. 3 3 3
-
 
 // interne -> undefined
 
