@@ -1,7 +1,15 @@
 // function(exports, require, module, __dirname, __filename) {
 
-const MyMath = require('./my-math');
+const assert = require('assert'); // binaire Node
+const chalk = require('chalk'); // dossier du node_modules
+const MyMath = require('./my-math'); // fichier local
 
-console.log(MyMath.add(1, 2)); // 3
+try {
+  assert.equal(MyMath.add(1, 2), 3);
+  console.log(chalk.green('Tests MyMath Succeeded'));
+} catch (err) {
+  console.log(chalk.red('Tests MyMath Failed'));
+  process.exit(1);
+}
 
 // }

@@ -4,7 +4,7 @@
  * @returns {string} Message de salutations
  */
 function hello(name) {
-  return `Hello ${name}`;
+  return `Hello ${name} !`;
 }
 
 module.exports = hello;
