@@ -1,0 +1,3 @@
+// process.stdin...
+
+console.log(process.argv.slice(2));

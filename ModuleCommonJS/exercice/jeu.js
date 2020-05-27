@@ -1,4 +1,6 @@
 const readline = require("readline");
+const chalk = require('chalk');
+const Random = require('./random');
 
 // importer la fonction getRandomIntInclusive ou l'objet Random
 
@@ -24,11 +26,11 @@ class Jeu {
   }
   jouer() {
     if (this.essais.length) {
-      console.log(`Vous avez déjà saisi : ${this.essais.join(" - ")}...`);
+      console.log(chalk.yellow(`Vous avez déjà saisi : ${this.essais.join(" - ")}...`));
     }
 
-    this._rl.question("Quel est le nombre ? ", (answer) => {
-      console.log(`Vous avez saisi : ${answer} !`);
+    this._rl.question(chalk.bgYellow.bold.blue("Quel est le nombre ? "), (answer) => {
+      console.log(chalk.gray(`Vous avez saisi : ${answer} !`));
 
       const entierSaisi = Number.parseInt(answer, 10);
 
@@ -54,3 +56,4 @@ class Jeu {
 }
 
 // exporter Jeu
+module.exports = Jeu;
