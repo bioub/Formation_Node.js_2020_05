@@ -1,4 +1,4 @@
-const readline = require("readline");
+const readline = require('readline');
 const chalk = require('chalk');
 const Random = require('./random');
 

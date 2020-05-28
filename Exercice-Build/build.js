@@ -16,3 +16,36 @@ const appJsDistPath = path.resolve(distPath, 'app.js');
 // on écrit fs.readFile pour la version basé sur les promesses
 // et pas fs.promises.readFile
 
+async function removeAndMkdir(dirPath) {
+  await fs.remove(dirPath);
+  await fs.mkdir(dirPath);
+}
+
+async function buildJs() {
+  const buffers = await Promise.all([
+    fs.readFile(horlogeJsPath),
+    fs.readFile(indexJsPath),
+  ]);
+
+  await fs.writeFile(appJsDistPath, Buffer.concat(buffers));
+}
+
+async function buildHtml() {
+  let content = await fs.readFile(indexHtmlPath, { encoding: 'utf-8' });
+
+  // content = content.replace('<script src="./js/horloge.js"></script>', '')
+  //   .replace('<script src="./js/index.js"></script>', '<script src="./app.js"></script>');
+
+  content = content.replace(/<script.*<\/script>/s, '<script src="./app.js"></script>');
+
+  await fs.writeFile(indexHtmlDistPath, content);
+}
+
+(async () => {
+  await removeAndMkdir(distPath);
+  await Promise.all([
+    buildJs(),
+    buildHtml(),
+  ]);
+  console.log('Build DONE');
+})();

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function createButton(val) {
+      const btnEl = document.createElement('button');
+      btnEl.innerText = val;
+      btnEl.addEventListener('click', (event) => {
+        // ne fonctionne plus avec les fonctions fléchées
+        // console.log(this.innerText);
+        console.log(val);
+        console.log(event.target.innerText);
+        console.log(event.currentTarget.innerText);
+      });
+      document.body.appendChild(btnEl);
+    }
+
+    createButton('Button 1');
+    createButton('Button 2');
+    createButton('Button 3');
+    createButton('Button 4');
+  </script>
+</body>
+</html>

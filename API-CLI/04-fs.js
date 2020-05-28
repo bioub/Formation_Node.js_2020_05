@@ -53,3 +53,12 @@ async function copy() {
 }
 
 copy();
+
+// Top Level Await (ESNext / TypeScript 3.8+)
+// try {
+//   const content = await fs.promises.readFile(ecPath, { encoding: "utf-8" });
+//   await fs.promises.writeFile(ecCopyPath, content);
+//   console.log("DONE");
+// } catch (err) {
+//   console.log(err);
+// }
