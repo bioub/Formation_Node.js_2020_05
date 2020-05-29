@@ -17,7 +17,8 @@
 
     start() {
       this._render();
-      setInterval(this._render.bind(this), 1000);
+      //setInterval(this._render.bind(this), 1000);
+      setInterval(() => this._render(), 1000);
     }
   }
 

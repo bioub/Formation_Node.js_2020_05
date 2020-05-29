@@ -20,6 +20,9 @@ class Contact {
   helloCallback() {
     // this de la portée closure
     setTimeout(() => {
+      // toutes les pseudo variables ne sont pas créées
+      // dans fonctions fléchées :
+      // this, arguments, super, new.target
       console.log(`Hello ${this.prenom}`);
     }, 1000);
   }
@@ -28,3 +31,9 @@ class Contact {
 const romain = new Contact();
 romain.helloCallback();
 
+// Function.prototype.bind = function(that) {
+//   const fct = this;
+//   return function() {
+//     fct.call(that);
+//   };
+// }

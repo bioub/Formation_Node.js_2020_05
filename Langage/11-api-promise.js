@@ -1,3 +1,10 @@
+const util = require('util');
+
+// fs.readFile respecte le standard de callback de Node
+// - callback dernier param
+// - arguments du callback err, valeur de retour (si besoin)
+const readFilePromise = util.promisify(fs.readFile);
+
 // setTimeout((val) => {
 //   console.log(val);
 // }, 1000, 'A');
@@ -66,3 +73,13 @@ async function randomTimeout(val) {
     console.log("parallel", val);
   }
 })();
+
+
+
+
+// Promise.race([
+//   axios.get('/contacts'),
+//   timeout(5000),
+// ]).then(() => {
+
+// })

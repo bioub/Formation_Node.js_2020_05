@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "Langage"
+		},
+		{
+			"path": "ModuleCommonJS"
+		},
+		{
+			"path": "API-CLI"
+		},
+		{
+			"path": "Exercice-Build"
+		},
+		{
+			"path": "API-Serveur"
+		},
+		{
+			"path": "Express-REST"
+		}
+	],
+	"settings": {}
+}
