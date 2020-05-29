@@ -78,6 +78,27 @@ exports.delete = async (req, res, next) => {
  * @param res {import('express').Response}
  * @param next {import('express').NextFunction}
  */
+exports.replace = async (req, res, next) => {
+  try {
+    const contact = await Contact.findByIdAndReplace(req.params.id, req.body);
+
+    if (!contact) {
+      req.notFoundReason = `Contact ${req.params.id} not found`;
+      return next();
+    }
+
+    res.json(contact);
+  }
+  catch (err) {
+    next(err);
+  }
+};
+
+/**
+ * @param req {import('express').Request}
+ * @param res {import('express').Response}
+ * @param next {import('express').NextFunction}
+ */
 exports.update = async (req, res, next) => {
   try {
     const contact = await Contact.findByIdAndUpdate(req.params.id, req.body);
